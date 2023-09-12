@@ -8,3 +8,6 @@ Developing a new Salient Object Detection (SOD) model involves selecting an Imag
 
 [SODAWideNet](https://drive.google.com/drive/folders/19yZ8hAOgvdHSkZsmyiWeDzZEFHybJdVV?usp=sharing) <br />
 [SODAWideNet-S](https://drive.google.com/drive/folders/1rC11EUb9RocRKyXwLCd1AESY5ocjZ_ta?usp=sharing)
+
+#### Augmented DUTS Dataset used to train the proposed models
+[Dataset](https://drive.google.com/file/d/1-sxp99YoDRSQBebMWXLeI0tlkRsU_LrH/view?usp=sharing)
