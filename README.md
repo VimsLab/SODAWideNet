@@ -11,3 +11,11 @@ Developing a new Salient Object Detection (SOD) model involves selecting an Imag
 
 #### Augmented DUTS Dataset used to train the proposed models
 [Dataset](https://drive.google.com/file/d/1-sxp99YoDRSQBebMWXLeI0tlkRsU_LrH/view?usp=sharing)
+
+#### Training instructions
+
+Download the dataset from above and run the following command to train the larger model on **2** gpus with a batch size of **6**.
+
+```bash
+python train.py 0.001 41 30 SODAWideNet 2 6 1
+```
