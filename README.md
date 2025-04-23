@@ -1,4 +1,4 @@
-# SODAWideNet
+# SODAWideNet \[[Link](https://arxiv.org/pdf/2311.04828)\]
 SODAWideNet is a deep learning model that utilizes large convolutional kernels and Self-Attention at every layer of the network to extract long-range features without significant input downsampling without ImageNet pre-training.
 
 ### ABSTRACT
@@ -18,4 +18,46 @@ Download the dataset from above and run the following command to train the large
 
 ```bash
 python train.py 0.001 41 30 SODAWideNet 2 6 1
+```
+
+#### Inference
+
+Use the above step to train the model, which will create the necessary checkpoint. Then, use the commands provided below to generate the saliency map for a single image or multiple images in a folder. **model_size** can be **L** and **S**.
+```bash
+python inference.py \
+    --mode single \
+    --input_path /path/to/image.jpg \
+    --display \
+    --model_size L
+```
+
+The below script generates a saliency map and saves the result.
+```bash
+python inference.py \
+    --mode single \
+    --input_path /path/to/image.jpg \
+    --model_size L
+```
+The below script generates saliency maps for a folder of images and saves them in the user-specified output directory.
+```bash
+python inference.py \
+    --mode folder \
+    --input_path /path/to/input/folder \
+    --output_dir /path/to/output/folder \
+    --model_size L
+```
+
+#### Citation
+
+If you find our research helpful, please use the following citation.
+
+```
+@inproceedings{dulam2023sodawidenet,
+  title={Sodawidenet-salient object detection with an attention augmented wide encoder decoder network without imagenet pre-training},
+  author={Dulam, Rohit Venkata Sai and Kambhamettu, Chandra},
+  booktitle={International Symposium on Visual Computing},
+  pages={93--105},
+  year={2023},
+  organization={Springer}
+}
 ```
