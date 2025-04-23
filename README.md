@@ -20,6 +20,12 @@ Download the dataset from above and run the following command to train the large
 python train.py 0.001 41 30 SODAWideNet 2 6 1
 ```
 
+For the smaller **S** model, use the following command. Also, before running the below command, uncomment line 141 and comment line 142 in _SODAWideNet.py_ file.
+
+```bash
+python train.py 0.001 41 30 SODAWideNetS 2 6 1
+```
+
 #### Inference
 
 Use the above step to train the model, which will create the necessary checkpoint. Then, use the commands provided below to generate the saliency map for a single image or multiple images in a folder. **model_size** can be **L** and **S**.
