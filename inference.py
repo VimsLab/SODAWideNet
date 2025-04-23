@@ -13,12 +13,12 @@ def load_model(model_size, cuda=None):
 	if model_size == 'L':
 		model = SODAWideNet(3, 1, use_contour = True, deep_supervision = True, factorw = 2)
 		model.to(cuda)
-		checkpoint = torch.load('checkpoints/DUTSSODAWideNet++L.pt', map_location=cuda)
+		checkpoint = torch.load('checkpoints/SODAWideNet40.pt', map_location=cuda)
 	
 	elif model_size == 'S':
 		model = SODAWideNet(3, 1, use_contour = True, deep_supervision = True, factorw = 1)
 		model.to(cuda)
-		checkpoint = torch.load('checkpoints/DUTSSODAWideNet++S.pt', map_location=cuda)
+		checkpoint = torch.load('checkpoints/SODAWideNetS40.pt', map_location=cuda)
 
 
 	else:
