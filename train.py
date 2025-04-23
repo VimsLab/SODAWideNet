@@ -66,7 +66,7 @@ def structure_loss_contour(pred,target):
 
 def init_weights(net, init_type='normal', gain=0.02):
 	def init_func(m):
-		classname = m.__class__.__name__#; print(classname)
+		classname = m.__class__.__name__
 		if hasattr(m, 'weight') and (classname.find('Conv') != -1 or classname.find('Linear') != -1):
 			if init_type == 'normal' and classname.find('Conv1d') != -1:
 				n = m.kernel_size[0] * m.in_channels
@@ -127,7 +127,7 @@ def training_deepx(epochs, eno, model, dataloader, cuda, criterion, optimizer, s
 		print('[%d/%d]Loss: %.2f' % (epoch, epochs, loss_end/count), flush = True)
 		if epoch < 30:
 			continue
-		# if local_rank == 0:
+		
 		torch.save({
 			'epoch': epoch,
 			'model_state_dict': model.module.state_dict(),
@@ -139,7 +139,7 @@ def training_deepx(epochs, eno, model, dataloader, cuda, criterion, optimizer, s
 def main(train = False, lr = 0.001, epochs = 30, t = 25, f_name = 'checkpoints/model.pt', device_list = None, device = 0, batch = 0, sched = 1):
 	cuda = torch.device("cuda:" + str(device) if torch.cuda.is_available() else "cpu")
 	# model = SODAWideNet(3, 1, use_contour = True, deep_supervision = True, factorw = 1); init_weights(model)
-  model = SODAWideNet(3, 1, use_contour = True, deep_supervision = True, factorw = 2); init_weights(model)
+  	model = SODAWideNet(3, 1, use_contour = True, deep_supervision = True, factorw = 2); init_weights(model)
 	if device_list is not None:
 		model = nn.DataParallel(model, device_ids = device_list)
 	else:
@@ -158,7 +158,7 @@ def main(train = False, lr = 0.001, epochs = 30, t = 25, f_name = 'checkpoints/m
 	criterion = nn.BCEWithLogitsLoss()
 	epoch = 0
 	print('No Pre-Training', flush = True)
-  start = time.time()
+  	start = time.time()
 	if train:
 		model = training_deepx(abs(epochs - epoch), abs(epoch - t), model, train_dataloader, cuda, criterion, optimizer, scheduler, f_name = f_name, criterion2 = criterion2, train_sampler = train_sampler)
 		end = time.time()
